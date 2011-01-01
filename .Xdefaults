@@ -8,11 +8,10 @@
 ! Look and feel
 URxvt.background: #000000
 URxvt.foreground: #FFFFFF
-URxvt.title:      test
 URxvt.scrollBar:  false
 
 ! Fonts
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=12:dpi=96:antialias=true
+
 
 ! Tabs support
 URxvt.perl-ext-common:  default,tabbed
