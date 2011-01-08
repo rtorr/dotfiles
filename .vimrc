@@ -14,6 +14,8 @@ set history=1000
 set title
 set ruler
 set autochdir
+set backupdir=/tmp
+set directory=/tmp
 
 " Syntax
 syntax on
@@ -21,8 +23,8 @@ color molokai
 filetype plugin on
 
 " Save folds
-au BufWinLeave * silent! mkview
-au BufWinEnter * silent! loadview
+"au BufWinLeave * silent! mkview
+"au BufWinEnter * silent! loadview
 
 " Force filetypes
 au BufRead,BufNewFile *.py set filetype=python
