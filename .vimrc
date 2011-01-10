@@ -4,7 +4,7 @@ set number
 set nobackup
 set ai
 set modeline
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smartindent
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set backspace=indent,eol,start
 set nocompatible
 set showmatch
@@ -21,6 +21,7 @@ set directory=/tmp
 syntax on
 color molokai
 filetype plugin on
+filetype indent on
 
 " Save folds
 "au BufWinLeave * silent! mkview
@@ -51,7 +52,7 @@ let NERDTreeChDirMode = 1
 nmap <silent> <leader>b :buffers<CR>:buffer<Space>
 
 " Search
-map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+map <leader>s :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 " Reload snippets
 map <F7> :call ResetSnippets()<CR>
