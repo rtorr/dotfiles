@@ -4,7 +4,7 @@ set number
 set nobackup
 set ai
 set modeline
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set backspace=indent,eol,start
 set nocompatible
 set showmatch
@@ -19,13 +19,13 @@ set directory=/tmp
 
 " Syntax
 syntax on
-color molokai
+color twilight256
 filetype plugin on
-filetype indent on
+filetype indent off
 
 " Save folds
-"au BufWinLeave * silent! mkview
-"au BufWinEnter * silent! loadview
+au BufWinLeave * silent! mkview
+au BufWinEnter * silent! loadview
 
 " Force filetypes
 au BufRead,BufNewFile *.py set filetype=python
@@ -41,22 +41,28 @@ if has('gui_running')
     set cursorline
 endif
 
+" Fix ' uselessness with marks
+nnoremap ' `
+nnoremap ` '
+
 " Leader
 let mapleader = ","
 
+map <silent> <leader>+ :set guifont=DejaVu\ Sans\ Mono\ 14<CR>
+map <silent> <leader>- :set guifont=DejaVu\ Sans\ Mono\ 10<CR>
+
+" Copy whole document
+map <silent> <leader>cd magg"+yG'a
+
 " NERDTree
 map <silent> <leader>f :NERDTreeToggle<CR>
-let NERDTreeChDirMode = 1
+    let NERDTreeChDirMode = 1
 
 " Better buffer management
-nmap <silent> <leader>b :buffers<CR>:buffer<Space>
+map <silent> <leader>b :buffers<CR>:buffer<Space>
 
 " Search
 map <leader>s :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
-" Reload snippets
-map <F7> :call ResetSnippets()<CR>
-
-" Fix ' uselessness with marks
-nnoremap ' `
-nnoremap ` '
+" Sudo write (,W) (stolen from gf3)
+map <leader>W :w !sudo tee %<CR>
