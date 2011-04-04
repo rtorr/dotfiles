@@ -13,7 +13,6 @@ set hidden
 set history=1000
 set title
 set ruler
-set autochdir
 set backupdir=/tmp
 set directory=/tmp
 
@@ -33,23 +32,32 @@ au BufRead,BufNewFile *.py set filetype=python
 " GUI Stuff
 if has('gui_running')
     set mouse=a
-    color twilight
+    set background=light
+    color solarized
     set guioptions+=mTrbLl
     set guioptions-=mTrbLl
     set guifont=DejaVu\ Sans\ Mono\ 10
 
     set cursorline
+
+    " Change font size
+    map <silent> <leader>+ :set guifont=DejaVu Sans Mono 14<CR>
+    map <silent> <leader>- :set guifont=DejaVu Sans Mono 10<CR>
 endif
 
 " Fix ' uselessness with marks
 nnoremap ' `
 nnoremap ` '
 
+" Accomodate for your fat fingers
+command! W w
+
 " Leader
 let mapleader = ","
 
-map <silent> <leader>+ :set guifont=DejaVu\ Sans\ Mono\ 14<CR>
-map <silent> <leader>- :set guifont=DejaVu\ Sans\ Mono\ 10<CR>
+" Change tab stop
+map <silent> <leader>t2 :set tabstop=2 softtabstop=2 shiftwidth=2 expandtab<CR>
+map <silent> <leader>t4 :set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>
 
 " Copy whole document
 map <silent> <leader>cd magg"+yG'a
