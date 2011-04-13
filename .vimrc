@@ -59,8 +59,11 @@ let mapleader = ","
 map <silent> <leader>t2 :set tabstop=2 softtabstop=2 shiftwidth=2 expandtab<CR>
 map <silent> <leader>t4 :set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>
 
-" Copy whole document
+" Copy whole document to clipboard
 map <silent> <leader>cd magg"+yG'a
+" Paste from clipboard
+map <silent> <leader>P "+P
+map <silent> <leader>p "+p
 
 " NERDTree
 map <silent> <leader>f :NERDTreeToggle<CR>
