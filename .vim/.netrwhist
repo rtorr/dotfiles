@@ -1,4 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/usr/share/applications'
 let g:netrw_dirhist_2='/home/tim/bocoup/work/git/community-planit/web/challenges'
+let g:netrw_dirhist_3='/usr/local/lib/node/.npm/smoosh/0.1.0/package/lib/smoosh'
+let g:netrw_dirhist_4='/usr/local/lib/node/.npm/smoosh/0.1.0/package/lib'
