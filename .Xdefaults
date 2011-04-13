@@ -5,13 +5,23 @@
 ! vim:      nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
 ! ----------------------------------------------------------------------------
 
+! DPI font
+Xft.dpi: 96.0
+Xft.antialias: true
+
 ! Look and feel
-URxvt.background: #000000
-URxvt.foreground: #FFFFFF
-URxvt.scrollBar:  false
-
-! Fonts
-
+URxvt*scrollBar_right: false
+URxvt*scrollBar: false
+URxvt*borderLess: false
+URxvt*tintColor: white
+URxvt*shading: 10
+URxvt*font: xft:terminus:pixelsize=13
+URxvt*background: #000000
+URxvt*foreground: #FFFFFF
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: firefox
+URxvt.matcher.button: 2
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 
 ! Tabs support
 URxvt.perl-ext-common:  default,tabbed
@@ -19,3 +29,13 @@ URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg:    2
 URxvt.tabbed.tab-bg:    0
+
+! Aterm Settings
+aterm*transparent: true
+aterm*shading: 10 
+aterm*background:Black
+aterm*foreground:White
+aterm*font: -windows-dina-medium-r-normal--12-*-96-*-c-70-iso8859-1
+aterm*scrollBar: true
+aterm*scrollBar_right: true
+aterm*transpscrollbar: true
