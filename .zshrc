@@ -11,6 +11,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 #
+zstyle ':completion:*' special-dirs true
 
 # Load colors
 autoload -U colors && colors
