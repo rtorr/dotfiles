@@ -6,19 +6,19 @@
 ! ----------------------------------------------------------------------------
 
 ! Colors
-URxvt*background:  #000000
+URxvt*background:  black
 URxvt*foreground:  #efefcf
 URxvt*color0:      #000000
 URxvt*color1:      #9e1828
 URxvt*color2:      #aece92
-URxvt*color3:      #968a38
+URxvt*color3:      #ffd674
 URxvt*color4:      #414171
-URxvt*color5:      #963c59
+URxvt*color5:      #ff5287
 URxvt*color6:      #418179
 URxvt*color7:      #bebebe
 URxvt*color8:      #666666
 URxvt*color9:      #cf6171
-URxvt*color10:     #c5f779
+URxvt*color10:     #dcffa4
 URxvt*color11:     #fff796
 URxvt*color12:     #4186be
 URxvt*color13:     #cf9ebe

@@ -19,6 +19,7 @@ set directory=/tmp
 " Syntax
 syntax on
 color twilight256
+set background=dark
 filetype plugin on
 filetype indent off
 
