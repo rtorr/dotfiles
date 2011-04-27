@@ -48,7 +48,11 @@ function zle-line-init zle-keymap-select {
   zle reset-prompt
 }
 preexec () { print -rn -- $terminfo[el]; }
-precmd () { print -rP ""
-PROMPT="%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)
-$(virtualenv_info)$ "
-}
+#precmd () { print -rP "
+#%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)"
+#PROMPT="$(virtualenv_info)$ "
+#}
+PROMPT="%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)$(virtualenv_info) $ "
+
+# Overrides
+export PATH=~/.scripts:$PATH
