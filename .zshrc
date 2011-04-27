@@ -23,6 +23,10 @@ EXTRAS=$ZSH/extras
 source $ZSH/git.zsh
 source $EXTRAS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Tab completion
+zstyle ':completion:*:*:*:*' menu select=1
+zstyle ':completion:*:*:*:*' verbose yes
+
 # Custom prompt
 # From: https://github.com/sjl/oh-my-zsh/blob/master/themes/prose.zsh-theme
 function virtualenv_info {
@@ -48,7 +52,7 @@ function zle-line-init zle-keymap-select {
   zle reset-prompt
 }
 preexec () { print -rn -- $terminfo[el]; }
-precmd () { print -rP ""
-PROMPT="%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)
-$(virtualenv_info)$ "
+precmd () { print -rP "
+%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)"
+PROMPT="$(virtualenv_info)$ "
 }
