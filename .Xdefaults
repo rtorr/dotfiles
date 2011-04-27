@@ -6,9 +6,9 @@
 ! ----------------------------------------------------------------------------
 
 ! Colors
-URxvt*background:  black
-URxvt*foreground:  #efefcf
-URxvt*color0:      #000000
+URxvt.background:  #232526
+URxvt.foreground:  #efefcf
+URxvt*color0:      #232526
 URxvt*color1:      #9e1828
 URxvt*color2:      #aece92
 URxvt*color3:      #ffd674
