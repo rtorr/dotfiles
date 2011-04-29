@@ -63,8 +63,8 @@ map <silent> <leader>t4 :set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>
 " Copy whole document to clipboard
 map <silent> <leader>cd magg"+yG'a
 " Paste from clipboard
-map <silent> <leader>P "+P
-map <silent> <leader>p "+p
+map <silent> <leader>P <SHIFT>'+P
+map <silent> <leader>p <SHIFT>'+p
 
 " NERDTree
 map <silent> <leader>f :NERDTreeToggle<CR>
