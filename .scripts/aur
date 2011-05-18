@@ -1,77 +1,101 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Copyright 2011, Tim Branyen @tbranyen <tim@tabdeveloper.com>
 # Dual licensed under the MIT and GPL licenses.
 #
-# Useful for fetching a package from AUR and automatically fetching dependancies
-# as well.
+# Script for fetching a package from AUR, optionally fetching all
+# dependancies, removing a package and optionall all dependancies.
 #
 
 # Internal properties
-GITHUB_PREFIX=git@github.com:
-GITHUB_USERNAME=$(git config --global github.user)
+SEARCH_PREFIX='http://aur.archlinux.org/packages.php?O=0&do_Search=Go&K='
+RPC_URL='http://aur.archlinux.org/rpc.php'
+ACTIONS='search install remove'
 
 function main {
-  # Improperly configured user
-  detect_user
-
   # Missing arguments
-  args=$1
-  if [ -z $args ]; then
+  args=("$@")
+  if [ $# -lt 1 ]; then
     echo '
-      gh: try ''`gh --help`'' for more information
+      aur: try ''`aur --help`'' for more information
     '
     exit
   fi
 
   # Display help text
-  if [ $args = '--help' ]; then
+  if [ ${args[0]} = '--help' ]; then
     echo '
-      Clone repos from your GitHub
-        gh repo1 repo2
+      Search for package:
+        aur search package_name
       
-      Clone repos from others GitHub
-        gh username/repo1 username/repo2
+      Install single package: (will warn if requires dependancies)
+        aur install package_name
 
-      Clone mixed repos:
-        gh repo1 username/repo2
+      Install single package and all dependancies:
+        aur install package_name --all
 
-      Clone line separated repos from file:
-        cat file | xargs gh
+      Remove single package: (keeping all dependancies)
+        aur remove package_name
+
+      Remove single package and all dependancies:
+        aur remove package_name --all
     '
     exit
   fi
 
-  # Parse arguments and clone repos.
-  find_repos
+  detect_action
+  
+  case $action in
+
+  "search") do_search
+    ;;
+  "install") do_install
+    ;;
+  "remove") do_remove
+    ;;
+
+  esac
 }
 
-function detect_user {
-  # If no username configured, attempt to pull from git --config
-  if [ -n "$GITHUB_USERNAME" ]; then
-    USERNAME=$GITHUB_USERNAME
-  else
-    echo '
-      gh: missing username
-      configure username with ''`git config --global github.user username`''
-    '
-    exit
-  fi
-}
-
-function find_repos {
-  for repo in $args; do
-    # If a user provides the parameter username/repo pull in that specific repository.
-    if [ `awk -v repo="$repo" -v delimit="/" 'BEGIN{print index(repo,delimit)}'` -ne 0 ]; then
-      echo "Pulling in $repo";
-      git clone $GITHUB_PREFIX$repo.git
-
-    # Default to you.
+function detect_action {
+  arg=${args[0]}
+  for action in $ACTIONS; do
+    if [ $arg == $action ]; then
+      break
     else
-      echo "Pulling in $USERNAME/$repo";
-      git clone $GITHUB_PREFIX$USERNAME/$repo.git
+      action=''
     fi
   done
+
+  if [ -z $action ]; then
+    throw_error "Invalid action"
+  fi
+}
+
+function make_request {
+  url="$RPC_URL?type=$1&arg=$2"
+  echo $url
+  echo `curl $url`
+  exit
+}
+ 
+function do_search {
+  term=${args[1]}
+  if [ -z $term ]; then
+    throw_error 'Missing search term'
+  fi
+
+  make_request 'search' $term
+}
+
+function throw_error {
+  echo "Error: $1"
+  exit
+}
+
+function clean_up {
+  # TODO: Stub, used for clean up
+  exit
 }
 
 main $*
