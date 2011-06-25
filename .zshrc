@@ -2,7 +2,6 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/tim/.zshrc'
@@ -55,4 +54,5 @@ preexec () { print -rn -- $terminfo[el]; }
 PROMPT='%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)$(virtualenv_info) $ '
 
 # Overrides
-export PATH=~/.scripts:$PATH
+export PATH=~/.scripts:~/git/nodegit/bin:$PATH
+export NODE_PATH=/usr/local/lib/node_modules/
