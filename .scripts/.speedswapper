@@ -1,0 +1,2 @@
+! Swap caps lock and escape
+keysym Caps_Lock = Escape
