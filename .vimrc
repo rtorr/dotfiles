@@ -25,6 +25,12 @@ filetype plugin on
 filetype indent off
 set foldmethod=manual
 
+" Change tabline colors
+hi! TabLineFill term=underline cterm=underline gui=underline
+
+hi! TabLineFillEnd term=underline cterm=underline gui=underline
+      \ ctermfg=white ctermbg=black guifg=white guibg=black
+
 " Save folds
 " au BufWinLeave * silent! mkview
 " au BufWinEnter * silent! loadview
