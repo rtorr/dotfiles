@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
+#bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/tim/.zshrc'
@@ -45,14 +45,16 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 # Distinguish between command and insert mode
 # From: http://pthree.org/2009/03/28/add-vim-editing-mode-to-your-zsh-prompt/ 
-terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
-function zle-line-init zle-keymap-select {
-  PS1_2="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-  PS1="%{$terminfo_down_sc$PS1_2$terminfo[rc]%}%~ %# "
-  zle reset-prompt
-}
+#terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
+#function zle-line-init zle-keymap-select {
+#  PS1_2="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+#  PS1="%{$terminfo_down_sc$PS1_2$terminfo[rc]%}%~ %# "
+#  zle reset-prompt
+#}
 preexec () { print -rn -- $terminfo[el]; }
 PROMPT='%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)$(virtualenv_info) $ '
 
 # Overrides
 export PATH=~/.scripts:$PATH
+
+export PATH=~/git/lude/build:$PATH

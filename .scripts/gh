@@ -19,8 +19,8 @@ function main {
   detect_user
 
   # Missing arguments
-  args=$1
-  if [ -z $args ]; then
+  args=$*
+  if [ $# -lt 1 ]; then
     echo '
       gh: try ''`gh --help`'' for more information
     '
