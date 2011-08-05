@@ -28,21 +28,23 @@ function main {
   fi
 
   # Display help text
-  if [ $args = '--help' ]; then
-    echo '
-      Clone repos from your GitHub
-        gh repo1 repo2
-      
-      Clone repos from others GitHub
-        gh username/repo1 username/repo2
+  if [ $# -eq 1 ]; then
+    if [ $args = '--help' ]; then
+      echo '
+        Clone repos from your GitHub
+          gh repo1 repo2
+        
+        Clone repos from others GitHub
+          gh username/repo1 username/repo2
 
-      Clone mixed repos:
-        gh repo1 username/repo2
+        Clone mixed repos:
+          gh repo1 username/repo2
 
-      Clone line separated repos from file:
-        cat file | xargs gh
-    '
-    exit
+        Clone line separated repos from file:
+          cat file | xargs gh
+      '
+      exit
+    fi
   fi
 
   # Parse arguments and clone repos.
