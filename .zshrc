@@ -2,7 +2,6 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-#bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/tim/.zshrc'
@@ -52,7 +51,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 #  zle reset-prompt
 #}
 preexec () { print -rn -- $terminfo[el]; }
-PROMPT='%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)$(virtualenv_info) $ '
+PROMPT='%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)$(virtualenv_info)%{$VIMODE%} $ '
 
 # Overrides
 export PATH=~/.scripts:$PATH

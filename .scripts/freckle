@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+var freckle = require( "freckle" );
+
+freckle( "bocoup", "a2a6gb5ebha21lrt438fm20cd221yme" );
+
+function addEntry( projectName, time, description, cb ) {
+  freckle.projects.list(function( err, projects ) {
+    if( err ) {
+      return cb( err );
+    }
+
+    projects.forEach(function( project ) {
+      if( project.project.name === projectName ) {
+        freckle.entries.add({
+          'entry': {
+            'minutes': time
+          , 'user': "tim@bocoup.com"
+          , 'project_id': project.project.id
+          , 'description': description
+          , 'date': freckle.date( new Date )
+          }
+        }, function( err, data ) {
+          if( err ) {
+            return cb( err );
+          }
+
+          cb( 0, data );
+        });
+      }
+    });
+  });
+}
+
+var args = process.argv.slice( 2, process.argv.length );
+add.apply( this, args );
+
+function add( project, time, tag ) {
+  addEntry( project, time, tag, function( err ) {
+    if( err ) {
+      throw new Error( err );
+    }
+
+    console.log( "Successfully added " + time + " to " + project );
+  });
+}
