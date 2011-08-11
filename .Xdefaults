@@ -12,7 +12,7 @@ URxvt*color0:      #232526
 URxvt*color1:      #9e1828
 URxvt*color2:      #aece92
 URxvt*color3:      #ffd674
-URxvt*color4:      #414171
+URxvt*color4:      #7ab2ff
 URxvt*color5:      #ff5287
 URxvt*color6:      #418179
 URxvt*color7:      #bebebe
@@ -50,3 +50,6 @@ URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg:    2
 URxvt.tabbed.tab-bg:    0
+
+! Compatibility settings
+URxvt*termName: rxvt-256color
