@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# Ensure libs dir exists under js
+mkdir -p js/libs
+
+# Fetch jQuery
+curl http://code.jquery.com/jquery.js > js/libs/jquery.js
+
+# Fetch Underscore
+curl http://documentcloud.github.com/underscore/underscore.js > js/libs/underscore.js
+
+# Fetch Backbone
+curl http://documentcloud.github.com/backbone/backbone.js > js/libs/backbone.js 
+
+# Echo out the index.html template
+echo "
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Bone</title>
+</head>
+
+<body>
+  
+  <script src="js/libs/jquery.js"></script>
+  <script src="js/libs/underscore.js"></script>
+  <script src="js/libs/backbone.js"></script>
+  <script>
+
+  </script>
+</body>
+</html>
+" > index.html
