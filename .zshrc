@@ -56,5 +56,6 @@ PROMPT='%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}
 # Overrides
 export PATH=~/.scripts:$PATH
 export NODE_PATH=/usr/local/lib/node_modules/
+export EDITOR=vim
 
 alias up='make update'
