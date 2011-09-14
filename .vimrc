@@ -47,8 +47,8 @@ if has('gui_running')
     set cursorline
 
     " Change font size
-    map <silent> <leader>+ :set guifont=DejaVu Sans Mono 14<CR>
-    map <silent> <leader>- :set guifont=DejaVu Sans Mono 10<CR>
+    map <silent> <leader>+ :set guifont=DejaVu\ Sans\ Mono\ 14<CR>
+    map <silent> <leader>- :set guifont=DejaVu\ Sans\ Mono\ 10<CR>
 endif
 
 " Fix ' uselessness with marks

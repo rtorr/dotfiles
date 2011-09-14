@@ -34,3 +34,5 @@ echo "
 </body>
 </html>
 " > index.html
+
+vim
